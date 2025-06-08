@@ -1,72 +1,54 @@
-# 🏥 Hospital Management System
+# Hospital Management System
 
-A role-based, session-authenticated hospital management system built with **Spring Boot 3.5.0**, **Java 21**, and **MySQL 8**. It facilitates management of appointments, doctors, patients, medicines, and treatment history.
+A full-stack web application built with Spring Boot 3.5.0 and JDK 21 to manage hospital operations including appointments, patients, doctors, medicines, and treatment history.
 
----
+## Features
 
-## 🚀 Features
+- **Doctor Management** – View patients, complete appointments, prescribe medicines.
+- **Admin Dashboard** – Manage users, roles, doctors, and medicines.
+- **User Registration & Login** – Role-based session authentication using Spring Security.
+- **Appointment Booking** – Patients can book appointments with available doctors.
+- **Medicine Management** – Admin can perform CRUD operations on medicines, which are linked to prescriptions.
+- **Treatment History Tracking** – Doctors and patients can view treatment history. Updates are not allowed once submitted.
 
-- 🧑‍⚕️ **Doctor Management** – View patients, complete appointments, prescribe medicines.
-- 👨‍💼 **Admin Dashboard** – Manage users, roles, doctors, medicines.
-- 🧑‍💻 **User Registration & Login** – Role-based session authentication using Spring Security.
-- 📅 **Appointment Booking** – Patients can book appointments with available doctors.
-- 💊 **Medicine Management** – CRUD operations for medicines, linked to prescriptions.
-- 📜 **Treatment History Tracking** – Doctors can update treatments and prescribed medicines.
+## Tech Stack
 
----
+- **Backend:** Spring Boot 3.5.0, Spring Security, Spring Data JPA, Hibernate
+- **Frontend:** JSP, HTML, CSS, Bootstrap
+- **Database:** MySQL
+- **Build Tool:** Maven
+- **Java Version:** JDK 21
 
-## 🧰 Tech Stack
+## Database Schema
 
-| Technology             | Description                                  |
-|------------------------|----------------------------------------------|
-| **Java 21**            | Latest long-term support version             |
-| **Spring Boot 3.5.0**  | Backend application framework                |
-| **Spring Security 6**  | Modern authentication and authorization      |
-| **Spring Data JPA**    | ORM with Hibernate                           |
-| **MySQL 8**            | Relational database                          |
-| **Maven**              | Build and dependency management              |
+Key entities include:
 
----
+- `User` – Handles authentication and roles (`ADMIN`, `DOCTOR`, `PATIENT`)
+- `Doctor` – Includes details like name, specialization, experience
+- `Patient` – Includes personal and contact details
+- `Appointment` – Manages scheduling between doctors and patients
+- `Medicine` – Contains medicine details managed by admin
+- `TreatmentHistory` – Logs diagnosis, medicines, and treatment notes; view-only after submission
 
-## 📦 Modules
+## Roles and Permissions
 
-### 👥 User & Role Management
-- Session-based login/logout
-- Support for multiple roles per user (Admin, Doctor, Patient)
+| Role    | Permissions                                                  |
+|---------|--------------------------------------------------------------|
+| ADMIN   | Manage users, assign roles, add/edit doctors and medicines   |
+| DOCTOR  | View patients, complete appointments, add treatment history  |
+| PATIENT | Register, book appointments, view prescriptions & history    |
 
-### 📅 Appointment
-- Book appointment with doctor
-- View upcoming and past appointments
-- Doctors can complete appointments only after scheduled time
+## Setup Instructions
 
-### 💊 Medicine
-- Admin can add/update/delete medicines
-- Doctors can prescribe medicines from this list
+### Prerequisites
 
-### 📝 Treatment History
-- Linked to completed appointments
-- Records diagnosis and prescribed medicines
+- Java 21
+- Maven
+- MySQL
+- Git
 
----
+### 1. Clone the repository
 
-## 🗃️ Database Schema (Entities Overview)
-
-- `User` – common table for login info
-- `Role` – user roles (ADMIN, DOCTOR, PATIENT)
-- `Doctor` – specialization, experience, etc.
-- `Patient` – basic personal and contact info
-- `Appointment` – date, doctor, patient, status
-- `Medicine` – name, manufacturer, price
-- `TreatmentHistory` – appointment, notes, prescriptions
-- `PrescribedMedicine` – junction table for prescriptions
-
----
-
-## 🔐 Authentication & Authorization
-
-- **Spring Security 6**
-- **Session-based authentication**
-- **Role-based access control** using `@PreAuthorize`, URL access rules, etc.
-- `UserDetailsService` & `PasswordEncoder` for secure credential handling
-
----
+```bash
+git clone https://github.com/your-username/hospital-management.git
+cd hospital-management
