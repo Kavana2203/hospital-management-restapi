@@ -38,17 +38,3 @@ Key entities include:
 | DOCTOR  | View patients, complete appointments, add treatment history  |
 | PATIENT | Register, book appointments, view prescriptions & history    |
 
-## Setup Instructions
-
-### Prerequisites
-
-- Java 21
-- Maven
-- MySQL
-- Git
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/hospital-management.git
-cd hospital-management
