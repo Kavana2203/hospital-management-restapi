@@ -1,0 +1,61 @@
+WebSocket -> enables real time continuous two-way communication between client and server
+STOMP protocol -> gives structure to the messages i.e., organize and route messages within that connection
+Message Broker -> intermediary module that receives messages from one client or source and forwards them to one or more destinations, based on defined rules.
+
+----------------------------------------------------------------------------------------------------------------
+WebSocket
+Enables real-time, full-duplex (two-way) communication between client and server over a single, long-lived TCP connection.
+
+Ideal for apps like chat, live feeds, collaborative editing, and online games.
+
+Lightweight and faster than traditional HTTP request/response cycles.
+
+📌 Think of WebSocket as the communication channel.
+
+🔹 STOMP (Simple Text Oriented Messaging Protocol)
+A text-based messaging protocol that works over WebSocket.
+
+Provides a structured way to format, route, and subscribe to messages.
+
+Allows concepts like:
+
+Topics (/topic/news) for broadcasting.
+
+Queues (/queue/user1) for point-to-point messaging.
+
+SUBSCRIBE, SEND, UNSUBSCRIBE, and ACK frames for message control.
+
+📌 Think of STOMP as the language or grammar used over the WebSocket.
+
+🔹 Message Broker
+An intermediary that:
+
+Accepts messages from producers (clients or backend).
+
+Applies rules (topic matching, filters, queues).
+
+Routes or broadcasts them to appropriate consumers (other clients).
+
+Can be built-in (e.g., Spring’s SimpleBroker) or external (RabbitMQ, ActiveMQ, Kafka, etc.).
+
+📌 Think of the message broker as the post office that delivers your messages to the right people.
+
+🔄 How They Work Together
+text
+Copy
+Edit
+Client A          Client B
+   |                 |
+   | --- WebSocket -->|
+   |    connection    |
+   |                 |
+   |-- SEND: /app/msg -->|
+   |                 |
+Server (WebSocket + STOMP + Broker)
+   |
+   |-- routes to ---> /topic/public
+   |
+   |--- SUBSCRIBE ---|
+         Client B receives message
+
+----------------------------------------------------------------------------------------------------------------

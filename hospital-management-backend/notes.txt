@@ -1,0 +1,35 @@
+Patient :
+{
+  "username": "JohnDoe123",
+  "password": "StrongP@ss1",
+  "fullName": "John Doe",
+  "gender": "MALE",
+  "dateOfBirth": "1995-08-15",
+  "phone": "+919876543210",
+  "email": "john.doe@example.com",
+  "address": "123 Main Street, Bangalore, India"
+}
+
+
+____________________________________________________________________________________________________________________
+
+get details from session id::::
+
+@GetMapping("/treatment-history")
+public ResponseEntity<List<TreatmentHistoryDto>> getMyTreatmentHistory() {
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    
+    // cast to your CustomUserDetails
+    CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+
+    // get the User entity
+    User loggedInUser = customUserDetails.getUser();
+
+    // get the user id
+    Long userId = loggedInUser.getId();
+
+    // Now fetch treatment history only for this user
+    List<TreatmentHistoryDto> history = treatmentHistoryService.findByPatientId(userId);
+
+    return ResponseEntity.ok(history);
+}
