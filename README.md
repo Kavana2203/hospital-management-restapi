@@ -1,6 +1,6 @@
 # Hospital Management System
 
-A full-stack web application built with Spring Boot 3.5.0 and JDK 21 to manage hospital operations including appointments, patients, doctors, medicines, and treatment history.
+A rest api built with Spring Boot 3.5.0 and JDK 21 to manage hospital operations including appointments, patients, doctors, medicines, and treatment history.
 
 ## Features
 
