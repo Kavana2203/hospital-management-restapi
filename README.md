@@ -1,6 +1,6 @@
 # Hospital Management System
 
-A rest api built with Spring Boot 3.5.0 and JDK 21 to manage hospital operations including appointments, patients, doctors, medicines, and treatment history.
+A backend REST API developed using Spring Boot to manage hospital operations, including doctors, patients, appointments, medicines, and treatment history. It implements session-based authentication with role-based access control for Admins, Doctors, and Patients.
 
 ## Features
 
