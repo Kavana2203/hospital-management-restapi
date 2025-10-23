@@ -14,7 +14,6 @@ A rest api built with Spring Boot 3.5.0 and JDK 21 to manage hospital operations
 ## Tech Stack
 
 - **Backend:** Spring Boot 3.5.0, Spring Security, Spring Data JPA, Hibernate
-- **Frontend:** JSP, HTML, CSS, Bootstrap
 - **Database:** MySQL
 - **Build Tool:** Maven
 - **Java Version:** JDK 21
